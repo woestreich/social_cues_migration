@@ -39,3 +39,47 @@ p1b <- ggplot(cases) +
 
 p1a/p1b
 dev.off()
+
+########################### FIGURE 4 ###########################
+cases$cue_type <- factor(cases$cue_type, 
+                         levels = c("active cueing behavior", "social learning",
+                                    "presence of young","leading/following behavior",
+                                    "density dependency","breeding competition"))
+tiff("../outputs/Fig4.tiff",units="in", width=12,height=5,res=300)
+p4a <- ggplot(cases, aes(x=class, fill=decision_type)) +
+  geom_bar(color = "black") +
+  scale_fill_brewer() +
+  xlab("Taxon") +
+  ylab("Number of case studies") +
+  guides(fill = guide_legend(title = "Temporal scale of decision")) +
+  theme_classic()
+
+p4b <- ggplot(cases, aes(x=class, fill=cue_type)) +
+  geom_bar(color = "black") +
+  scale_fill_brewer() +
+  xlab("Taxon") +
+  ylab("") +
+  guides(fill = guide_legend(title = "Social cue")) +
+  theme_classic()
+
+p4a+p4b
+dev.off()
+
+########################### FIGURE 5 ###########################
+p5a <- ggplot(cases, aes(x = cue_type)) + 
+  geom_bar(aes(fill = decision_type), position = "fill", color = "black") +
+  scale_fill_brewer() +
+  xlab("Social cue") +
+  ylab("Normalized count") +
+  guides(fill = guide_legend(title = "Temporal scale of decision")) +
+  theme_classic()
+p5a
+
+p5b <- ggplot(cases, aes(x = decision_type)) + 
+  geom_bar(aes(fill = cue_type), position = "fill", color = "black") +
+  scale_fill_brewer() +
+  xlab("Temporal scale of decision") +
+  ylab("Normalized count") +
+  guides(fill = guide_legend(title = "Social cue")) +
+  theme_classic()
+p5b

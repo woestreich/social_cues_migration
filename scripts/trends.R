@@ -9,7 +9,7 @@ rm(list = ls())
 setwd("scripts/")
 
 # load in case study list
-cases <- read.csv("../data/case_studies.csv")
+cases <- read.csv("../../case_studies.csv")
 cases$year <- as.integer(cases$year)
 
 # case study count by year
@@ -34,7 +34,7 @@ p1b <- ggplot(cases) +
   theme_classic() +
   xlab("Taxon") +
   ylab("Number of case studies") +
-  ylim(0,20) +
+  ylim(0,23) +
   coord_flip()
 
 p1a/p1b
@@ -45,10 +45,14 @@ cases$cue_type <- factor(cases$cue_type,
                          levels = c("active cueing behavior", "social learning",
                                     "presence of young","leading/following behavior",
                                     "density dependency","conspecific competition"))
+cases$decision_type <- factor(cases$decision_type, 
+                         levels = c("migration timing fine", "migration progress",
+                                    "migration timing broad", "to migrate or not to migrate"))
 tiff("../outputs/Fig4.tiff",units="in", width=12,height=5,res=300)
 p4a <- ggplot(cases, aes(x=class, fill=decision_type)) +
   geom_bar(color = "black") +
-  scale_fill_brewer() +
+  scale_fill_brewer(labels = c("migration timing (fine; \u2264 day)","migration progress",
+                               "migration timing (broad; > day)","to migrate or not to migrate")) +
   xlab("Taxon") +
   ylab("Number of case studies") +
   guides(fill = guide_legend(title = "Temporal scale of decision")) +
@@ -80,10 +84,12 @@ p5a <- ggplot(cases, aes(x = cue_type)) +
 p5b <- ggplot(cases, aes(x = decision_type)) + 
   geom_bar(aes(fill = cue_type), position = "fill", color = "black") +
   scale_fill_brewer() +
+  scale_x_discrete(labels = c("migration timing\n (fine; \u2264 day)","migration progress",
+                              "migration timing\n (broad; > day)","to migrate or\n not to migrate")) +
   xlab("Temporal scale of decision") +
   ylab("Normalized count") +
   guides(fill = guide_legend(title = "Social cue")) +
-  theme_classic()
+  theme_classic() 
 
 p5b
 dev.off()

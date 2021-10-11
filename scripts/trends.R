@@ -42,8 +42,8 @@ dev.off()
 
 ########################### FIGURE 4 ###########################
 cases$cue_type <- factor(cases$cue_type, 
-                         levels = c("active cueing behavior", "social learning",
-                                    "presence of young","leading/following behavior",
+                         levels = c("active cueing behavior", "leading/following behavior",
+                                    "social learning","presence of young",
                                     "density dependency","conspecific competition"))
 cases$decision_type <- factor(cases$decision_type, 
                          levels = c("migration timing fine", "migration progress",
@@ -56,7 +56,17 @@ p4a <- ggplot(cases, aes(x=class, fill=decision_type)) +
   xlab("Taxon") +
   ylab("Number of case studies") +
   guides(fill = guide_legend(title = "Temporal scale of decision")) +
-  theme_classic()
+  theme_classic() +
+  theme(legend.position = c(0.8, 0.8)) +
+  geom_segment(x = 3.9, y = 16.5, xend = 3.9, yend = 19,
+               lineend = 'butt', linejoin = 'mitre',
+               size = 1, arrow = arrow(length = unit(0.1, "inches"))) +
+  geom_segment(x = 3.9, y = 19, xend = 3.9, yend = 16.5,
+               lineend = 'butt', linejoin = 'mitre',
+               size = 1, arrow = arrow(length = unit(0.1, "inches"))) +
+  geom_text(x=3.9, y=15.5, label="broad",size=3) +
+  geom_text(x=3.9, y=20, label="fine",size=3) +
+  geom_text(x=0.8,y=22, label="A",size=5)
 
 p4b <- ggplot(cases, aes(x=class, fill=cue_type)) +
   geom_bar(color = "black") +
@@ -64,7 +74,17 @@ p4b <- ggplot(cases, aes(x=class, fill=cue_type)) +
   xlab("Taxon") +
   ylab("") +
   guides(fill = guide_legend(title = "Social cue")) +
-  theme_classic()
+  theme_classic() +
+  theme(legend.position = c(0.85, 0.75)) +
+  geom_segment(x = 4.3, y = 14, xend = 4.3, yend = 19,
+    lineend = 'butt', linejoin = 'mitre',
+    size = 1, arrow = arrow(length = unit(0.1, "inches"))) +
+  geom_segment(x = 4.3, y = 19, xend = 4.3, yend = 14,
+               lineend = 'butt', linejoin = 'mitre',
+               size = 1, arrow = arrow(length = unit(0.1, "inches"))) +
+  geom_text(x=4.3, y=13, label="implicit",size=3) +
+  geom_text(x=4.3, y=20, label="explicit",size=3) +
+  geom_text(x=0.8,y=22, label="B",size=5)
 
 p4a+p4b
 dev.off()
@@ -89,7 +109,19 @@ p5b <- ggplot(cases, aes(x = decision_type)) +
   xlab("Temporal scale of decision") +
   ylab("Normalized count") +
   guides(fill = guide_legend(title = "Social cue")) +
-  theme_classic() 
+  theme_classic()
+# +
+#   theme(legend.position="right",
+#         legend.margin=margin(0,0,0,0),
+#         legend.box.margin=margin(50,50,50,50)) +
+#   geom_segment(x = 5, y = 0.3, xend = 5, yend = 0.7,
+#                lineend = 'butt', linejoin = 'mitre',
+#                size = 1, arrow = arrow(length = unit(0.1, "inches"))) +
+#   geom_segment(x = 5, y = 0.7, xend = 5, yend = 0.3,
+#                lineend = 'butt', linejoin = 'mitre',
+#                size = 1, arrow = arrow(length = unit(0.1, "inches"))) +
+#   geom_text(x=5, y=0.25, label="implicit",size=3) +
+#   geom_text(x=5, y=0.75, label="explicit",size=3) 
 
 p5b
 dev.off()

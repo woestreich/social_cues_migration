@@ -1,0 +1,12 @@
+Search terms used in Clarivate’s Web of Science to identify case studies
+
+Searches were filtered to require the term “migration” along with meeting at least one of the following search term criteria:
+
+Option A: contains (“collective” OR “conspecific” OR “group” OR “social”) AND (“call” OR “cue”, “decision” OR “dynamic” OR “inform” OR “intelligence” OR “interaction” OR “move” OR “navigate” OR “sense”) 
+
+Option B: contains "synchronize"
+
+Option C: contains "lead" OR "follow"
+
+
+This search filtering approach was developed via trial and error using several known case studies matching our criteria and to avoid high-volume search result topics which utilize similar terminology but which are not relevant to the present study. The search terms also intentionally cast a wide net to avoid missing relevant case studies, as irrelevant search results could be manually filtered out after the initial search. The initial search (July 2021) resulted in 7170 search results, which were reviewed by at least two co-authors for relevance to this review based on title, abstract, and then full text. References within identified relevant case studies were also considered for inclusion as additional case studies. Finally, recent publications relevant to this review published since this initial search (July 2021 - January 2022) known to the co-authors were included as case studies.

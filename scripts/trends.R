@@ -21,13 +21,13 @@ for (i in 1969:2022) {
 }
 
 ########################### FIGURE 3 ###########################
-tiff("../outputs/Fig3.tiff",units="in", width=10,height=5,res=300)
+tiff("../outputs/Fig3.tiff",units="in", width=10,height=3.7,res=300)
 # time series of case studies
-p1a <- ggplot(yearly_counts,aes(year,num)) + 
-  geom_bar(stat = "identity", fill = "black", width = 0.8) +
-  theme_classic() +
-  xlab("Year") +
-  ylab("Number of case studies") 
+# p1a <- ggplot(yearly_counts,aes(year,num)) + 
+#   geom_bar(stat = "identity", fill = "black", width = 0.8) +
+#   theme_classic() +
+#   xlab("Year") +
+#   ylab("Number of case studies") 
 
 # taxonomic breakdown of case studies
 p1b <- ggplot(cases) +
@@ -35,13 +35,14 @@ p1b <- ggplot(cases) +
   theme_classic() +
   xlab("Taxon") +
   ylab("Number of case studies") +
-  ylim(0,23) +
+  ylim(0,26) +
   coord_flip()
 
-p1a/p1b
+p1b
 dev.off()
 
 ########################### FIGURE 4 ###########################
+## Old figure, not included in final manuscript
 cases$Cue.Type <- factor(cases$Cue.Type, 
                          levels = c("active cueing", "leader/follower",
                                     "social learning","presence of young",
@@ -96,6 +97,7 @@ p4a+p4b
 dev.off()
 
 ########################### FIGURE 5 ###########################
+## Old figure, not included in final manuscript
 tiff("../outputs/Fig5.tiff",units="in", width=9,height=5,res=300)
 #option a
 p5a <- ggplot(cases, aes(x = cue_type)) + 

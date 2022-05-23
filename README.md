@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/410104859.svg)](https://zenodo.org/badge/latestdoi/410104859)
+
 # social_cues_migration
 This repository contains the code and data for "The influence of social cues on timing of animal migrations". Co-authors include William K. Oestreich, Kanoe M. Aiu, Larry B. Crowder, Megan F. McKenna, Andrew M. Berdahl, and Briana Abrahms.
 
